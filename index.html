@@ -9,8 +9,6 @@
 <body>
 
 <div class="wrapper">
-
-  <!-- SIDEBAR -->
   <aside>
     <div>
       <div class="brand">
@@ -57,13 +55,13 @@
     </footer>
   </aside>
 
-  <!-- MAIN CONTENT AREA -->
+
   <main>
     <nav class="top-nav">
       <div class="nav-links">
         <a href="#education">교육 및 이수 과목</a>
 
-        <!-- 프로젝트 드롭다운 (우측 서브메뉴 추가) -->
+        <!-- 프로젝트 드롭다운 -->
         <div class="nav-dropdown">
           <a href="#projects" class="dropdown-trigger">프로젝트</a>
           <div class="dropdown-menu">
@@ -92,7 +90,7 @@
       </div>
     </nav>
 
-    <!-- 교육 및 이수 과목 영역 추가 -->
+    <!-- 교육 및 이수 과목 영역 -->
     <div class="content-header" id="education">
       <h2>교육 및 이수 과목</h2>
       <p class="section-desc">인덕대 컴퓨터전자공학을 전공하며 대우능력개발원 KDT의 AI 에이전트 클라우드·보안코딩 개발자 양성 과정을 수료했습니다.</p>
@@ -182,7 +180,7 @@
       </div>
     </div>
 
-    <!-- 기존 프로젝트 영역 -->
+    <!-- 프로젝트 영역 -->
     <div class="content-header" id="projects">
       <h2>프로젝트</h2>
       <p class="section-desc">팀 프로젝트 TripLinker와 장보고 서비스를 개발하고 AWS 환경에 배포하였습니다.</p>
@@ -217,6 +215,9 @@
       </div>
     </div>
 
+
+
+
     <!-- PROJECT 2 -->
     <div class="project-block" id="jangbogo">
       <div class="project-label">SECOND PROJECT</div>
@@ -225,25 +226,29 @@
         <span class="project-period">4인 팀 | 2개월</span>
       </div>
       <div class="project-desc">
-        영수증 스캔으로 냉장고 재고를 자동 등록하고, 보유 재료 기반 선택형 AI 레시피를 추천하는 웹 서비스
+        영수증 스캔으로 냉장고 재고를 자동 등록하고, 보유 재료 기반 AI 레시피를 추천하는 모바일 앱 서비스
       </div>
 
-      <div class="media-grid">
-        <div class="media-frame">
-          <img src="fridge1.gif" alt="OCR 스캔" onerror="this.style.display='none'; this.parentNode.innerText='[GIF: 영수증 OCR 촬영 시연]';">
-        </div>
-        <div class="media-frame">
-          <img src="fridge2.jpg" alt="레시피 추천" onerror="this.style.display='none'; this.parentNode.innerText='[캡처: 보유 재료 선택 & 레시피]';">
-        </div>
+      <div class="media-frame single-media">
+        <img src="img/jangbogo-main.png">
       </div>
 
       <div class="details-title">주요 구현 항목</div>
       <ul class="details-list">
-        <li><strong>영수증 OCR 파싱 및 DB 자동 저장:</strong> 영수증 이미지를 파싱하여 품목과 수량을 냉장고 재고 DB에 자동으로 등록</li>
-        <li><strong>보유 재료 기반 AI 레시피 추천:</strong> 냉장고 재고와 유저가 선택한 메인 재료를 조합하여 맞춤 레시피 반환</li>
-        <li><strong>Spring Data JPA 재고 CRUD:</strong> 유통기한 정렬 및 보유 수량 상태 관리를 위한 Entity 설계 및 CRUD 로직 구축</li>
+        <li><strong>영수증 OCR & 재고 자동화:</strong> Google Cloud Vision API로 영수증을 파싱해 품목과 수량을 냉장고 DB에 자동 등록</li>
+        <li><strong>AI 맞춤 레시피:</strong> Claude AI를 연동해 냉장고 보유 재료 기반 맞춤형 레시피 추천</li>
+        <li><strong>재고 & 유통기한 관리:</strong> Spring Data JPA 기반 식재료 카테고리 분류, 수량 관리 및 유통기한 임박 알림</li>
+        <li><strong>커뮤니티:</strong> 레시피 공유 커뮤니티 구현</li>
       </ul>
+
+      <div class="project-actions">
+        <a href="http://3.34.181.28:9090/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">사이트 방문</a>
+        <a href="jangbogo-detail.html" class="btn btn-secondary">상세 설명</a>
+      </div>
+
     </div>
+
+
 
   </main>
 </div>

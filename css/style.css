@@ -1,5 +1,5 @@
 html {
-    scroll-behavior: smooth; /* 클릭 시 부드럽게 이동 */
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -7,12 +7,12 @@ html {
     --bg-sidebar: #111827;
     --bg-card: #1f2937;
 
-    --primary: #38bdf8;            /* 핵심 시그니처 포인트 (하늘색) */
+    --primary: #38bdf8;
     --primary-glow: rgba(56, 189, 248, 0.2);
 
-    --text-title: #ffffff;         /* 메인 제목/핵심 포인트 (완전한 흰색) */
-    --text-main: #f3f4f6;          /* 일반 본문 (밝게 유지) */
-    --text-sub: #e2e8f0;           /* 보조 설명 (밝게 유지) */
+    --text-title: #ffffff;
+    --text-main: #f3f4f6;
+    --text-sub: #e2e8f0;
 
     --border: #374151;
     --accent-bg: rgba(56, 189, 248, 0.12);
@@ -31,7 +31,7 @@ body {
     line-height: 1.6;
 }
 
-/* Layout */
+/* 레이아웃 */
 .wrapper {
     display: flex;
     max-width: 1400px;
@@ -39,7 +39,7 @@ body {
     min-height: 100vh;
 }
 
-/* Sidebar */
+/* 사이드바 */
 aside {
     width: 320px;
     background: var(--bg-sidebar);
@@ -55,7 +55,6 @@ aside {
     flex-shrink: 0;
 }
 
-/* 포인트 1: '김재민' 메인 이름 강조 */
 .brand h1 {
     font-size: 2.2rem;
     color: var(--text-title);
@@ -65,7 +64,7 @@ aside {
 }
 
 .brand .role {
-    color: var(--primary); /* 포인트 컬러 */
+    color: var(--primary);
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 18px;
@@ -79,6 +78,7 @@ aside {
     word-break: keep-all;
 }
 
+/* 인적사항 */
 .contact-info {
     list-style: none;
     font-size: 0.88rem;
@@ -97,34 +97,33 @@ aside {
     gap: 8px;
 }
 
-/* 링크 파란색 및 밑줄 제거 */
 .contact-info a {
     color: inherit;
     text-decoration: none;
-    border-bottom: 1px dashed #374151; /* 기본 상태에서 차분한 점선 표시 */
+    border-bottom: 1px dashed #374151;
     transition: all 0.2s ease;
     cursor: pointer;
 }
 
 .contact-info a:hover {
-    color: #ffffff; /* 마우스 올렸을 때 흰색 강조 */
-    border-bottom: 1px solid #ffffff; /* 하단 선을 실선 흰색으로 강조 */
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
 }
 
 .contact-info li strong {
-    color: var(--primary); /* 라벨을 하늘색 포인트로 변경 */
+    color: var(--primary);
 }
 
 .contact-info li:last-child {
     margin-bottom: 0;
 }
 
-/* 포인트 2: 'Backend', 'Frontend' 스킬 타이틀 강조 */
+/* 기술 스택 */
 .sidebar-section-title {
     font-size: 0.88rem;
     text-transform: uppercase;
     letter-spacing: 1.2px;
-    color: var(--primary); /* 흰색 -> 선명한 하늘색 포인트 */
+    color: var(--primary);
     margin-bottom: 10px;
     font-weight: 800;
 }
@@ -145,7 +144,7 @@ aside {
     border-radius: 6px;
 }
 
-/* Main Content */
+/* 메인 영역 */
 main {
     flex-grow: 1;
     padding: 50px 40px;
@@ -155,12 +154,11 @@ main {
     margin-bottom: 30px;
     border-bottom: 1px solid var(--border);
     padding-bottom: 16px;
-    scroll-margin-top: 80px; /* 고정 내비게이션 바 높이만큼 여백을 두어 제목이 가려지지 않게 함 */
+    scroll-margin-top: 80px;
 }
 
-/* 포인트 3: '프로젝트' 헤더 강조 */
 .content-header h2 {
-    font-size: 2.1rem; /* 2.1rem 설정 */
+    font-size: 2.1rem;
     color: var(--text-title);
     font-weight: 900;
     display: flex;
@@ -184,7 +182,7 @@ main {
     line-height: 1.5;
 }
 
-/* Project Cards */
+/* 프로젝트 */
 .project-block {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -212,10 +210,9 @@ main {
     margin-bottom: 12px;
 }
 
-/* 포인트 4: 'TripLinker' 프로젝트 타이틀 강조 */
 .project-head h3 {
     font-size: 1.6rem;
-    color: var(--text-title); /* 명확한 완전 흰색 강조 */
+    color: var(--text-title);
     font-weight: 800;
     margin-top: 0;
 }
@@ -236,7 +233,7 @@ main {
     margin-bottom: 20px;
 }
 
-/* Media Grid */
+/* 미디어 이미지 */
 .media-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -269,7 +266,7 @@ main {
 
 .media-frame.single-media {
     width: 100%;
-    height: auto; /* 고정 높이를 해제하여 이미지 잘림 방지 */
+    height: auto;
     margin-bottom: 24px;
     border-radius: 8px;
     border: 1px solid var(--border);
@@ -278,12 +275,12 @@ main {
 
 .media-frame.single-media img {
     width: 100%;
-    height: auto; /* 원본 비율대로 전체 이미지 표시 */
+    height: auto;
     display: block;
-    object-fit: contain; /* 잘림 없이 100% 원본 노출 */
+    object-fit: contain;
 }
 
-/* 이미지 확대 모달 스타일 */
+/* 이미지 모달 */
 .image-modal {
     display: none;
     position: fixed;
@@ -316,7 +313,7 @@ main {
     cursor: pointer;
 }
 
-/* Details List */
+/* 상세 설명 목록 */
 .details-title {
     font-size: 0.95rem;
     color: var(--text-title);
@@ -335,20 +332,12 @@ main {
     margin-bottom: 8px;
 }
 
-/* 포인트 5: 'Kakao Map API 연동 동선 시각화:' 키워드 라벨 포인트 강조 */
 .details-list strong {
-    color: var(--primary); /* 흰색에서 하늘색 포인트로 변경하여 눈에 바로 띔 */
+    color: var(--primary);
     font-weight: 700;
 }
 
-/* Footer */
-footer {
-    margin-top: 40px;
-    font-size: 0.8rem;
-    color: var(--text-sub);
-    text-align: center;
-}
-
+/* 교육 및 이수 과목 */
 .education-block {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -359,7 +348,7 @@ footer {
 
 .course-grid {
     display: grid;
-    grid-template-columns: 1fr; /* 한 줄에 1개씩 배치 */
+    grid-template-columns: 1fr;
     gap: 12px;
 }
 
@@ -385,7 +374,7 @@ footer {
 
 .course-hours {
     font-size: 0.8rem;
-    color: #ffffff; /* 시간 글씨를 흰색으로 변경 */
+    color: #ffffff;
     background: rgba(255, 255, 255, 0.05);
     padding: 2px 8px;
     border-radius: 12px;
@@ -398,7 +387,7 @@ footer {
     line-height: 1.5;
 }
 
-/* Top Navigation */
+/* 네비게이션 */
 .top-nav {
     position: sticky;
     top: 0;
@@ -409,7 +398,7 @@ footer {
     margin-bottom: 30px;
     border-bottom: 1px solid var(--border);
     display: flex;
-    justify-content: space-between; /* 좌측 메뉴와 우측 연락처 양 끝 정렬 */
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -419,7 +408,6 @@ footer {
     gap: 10px;
 }
 
-/* 연락처 영역 우측 밀기 및 간격 정렬 */
 .nav-contact {
     margin-left: auto;
     display: flex;
@@ -443,20 +431,19 @@ footer {
     background: rgba(255, 255, 255, 0.08);
 }
 
-/* 프로젝트 호버 드롭다운 메뉴 스타일 */
+/* 드롭다운 메뉴 */
 .nav-dropdown {
     position: relative;
     display: inline-block;
 }
 
-/* 마우스 이동 시 호버가 끊기지 않도록 투명 연결 브릿지 추가 */
 .nav-dropdown::after {
     content: '';
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    height: 10px; /* 버튼과 드롭다운 사이 간격 연결 */
+    height: 10px;
 }
 
 .nav-dropdown .dropdown-menu {
@@ -477,7 +464,6 @@ footer {
     display: block;
 }
 
-/* 드롭다운 항목 그룹 */
 .dropdown-item {
     position: relative;
 }
@@ -495,7 +481,6 @@ footer {
     transition: background 0.2s, color 0.2s;
 }
 
-/* 2차 서브메뉴가 있는 아이템 우측 화살표(›) 표시 */
 .dropdown-item:has(.sub-menu) > a::after {
     content: '›';
     font-size: 1rem;
@@ -508,18 +493,17 @@ footer {
     background: rgba(255, 255, 255, 0.08);
 }
 
-/* 2차 서브메뉴 (1차 메뉴와 완전 밀착 및 동일 크기/스타일 유지) */
 .sub-menu {
     display: none;
     position: absolute;
-    top: -1px; /* 1차 테두리와 완벽 수평 정렬 */
+    top: -1px;
     left: 100%;
-    margin-left: 0; /* 떨어진 간격 제거 */
+    margin-left: 0;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 6px 0;
-    min-width: 150px; /* 1차 메뉴와 동일한 넓이 */
+    min-width: 150px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     z-index: 210;
 }
@@ -545,10 +529,10 @@ footer {
     background: rgba(255, 255, 255, 0.08);
 }
 
-/* Project Action Buttons */
+/* 프로젝트 버튼 */
 .project-actions {
     display: flex;
-    justify-content: center; /* 버튼 영역 중앙 정렬 */
+    justify-content: center;
     gap: 16px;
     margin-top: 28px;
 }
@@ -567,7 +551,6 @@ footer {
     letter-spacing: 0.3px;
 }
 
-/* 주요 버튼 (사이트 방문): 하이라이트 글래스 스타일 */
 .btn-primary {
     background: #ffffff;
     color: #0b0f19;
@@ -583,10 +566,9 @@ footer {
     box-shadow: 0 4px 14px rgba(255, 255, 255, 0.3);
 }
 
-/* 보조 버튼 (상세 설명 GitHub): 은은한 아웃라인 스타일 */
 .btn-secondary {
-    background: #374151; /* 명확한 다크 그레이 배경 */
-    color: #ffffff;      /* 선명한 흰색 텍스트로 가독성 확보 */
+    background: #374151;
+    color: #ffffff;
     border: 1px solid #4b5563;
 }
 
@@ -597,7 +579,15 @@ footer {
     transform: translateY(-2px);
 }
 
-/* Responsive */
+/* 푸터 */
+footer {
+    margin-top: 40px;
+    font-size: 0.8rem;
+    color: var(--text-sub);
+    text-align: center;
+}
+
+
 @media (max-width: 900px) {
     .wrapper {
         flex-direction: column;

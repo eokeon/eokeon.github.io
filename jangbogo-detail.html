@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripLinker 상세 설명 | 김재민</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <main style="max-width: 1000px; margin: 0 auto; padding: 60px 20px;">
+
+        <!-- 돌아가기 버튼 -->
+        <div style="margin-bottom: 30px;">
+            <a href="index.html" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+                ← 메인 포트폴리오로 돌아가기
+            </a>
+        </div>
+
+        <div class="content-header">
+            <h2>TripLinker 상세 설명</h2>
+            <p class="section-desc">사용자 취향 기반 여행 경로 추천 및 실시간 동행 정산 웹 플랫폼</p>
+        </div>
+
+        <!-- 프로젝트 개요 -->
+        <div class="project-block">
+            <h3>1. 시스템 아키텍처 & 개발 배경</h3>
+            <p class="project-desc" style="margin-top: 12px;">
+                여기에 시스템 구조도, 아키텍처 설명 및 개발 목적을 상세히 작성할 수 있습니다.
+            </p>
+        </div>
+
+        <!-- 상세 기능 설명 -->
+        <div class="project-block">
+            <h3>2. 핵심 기능 상세</h3>
+            <ul class="details-list" style="margin-top: 16px;">
+                <li><strong>AI 멀티 엔진 호출 구조:</strong> Claude -> Groq -> Gemini 순서의 장애 대응(Fallback) 구조 설명</li>
+                <li><strong>Kakao Map & 기상청 API:</strong> 실시간 날씨 데이터 반영 동선 시각화 로직</li>
+                <li><strong>JWT & OAuth2 인증:</strong> Kakao/Google 소셜 로그인 및 토큰 재발급 세부 설계</li>
+            </ul>
+        </div>
+
+        <!-- 트러블슈팅 -->
+        <div class="project-block">
+            <h3>3. 트러블 슈팅 & 성능 개선</h3>
+            <div class="trouble-card" style="margin-top: 16px;">
+                <h5>Technical Issue & Resolution</h5>
+                <p><strong>• 문제 상황:</strong> 대용량 장소 데이터 조회 시 응답 지연 발생</p>
+                <p><strong>• 해결 방법:</strong> DB 인덱싱 최적화 및 캐싱 전략 적용으로 응답 속도 개선</p>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+</body>
+</html>
