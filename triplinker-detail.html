@@ -3,344 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TripLinker 상세 개발 설명 | 김재민 Portfolio</title>
+    <title>TripLinker 상세 개발 설명</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* 기본 레이아웃 & 테마 보안 */
-        .project-block {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
-            border-radius: 14px;
-            padding: 28px;
-            margin-bottom: 28px;
-        }
-
-        .section-tag {
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: var(--primary, #38bdf8);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-            display: block;
-        }
-
-        .section-title {
-            font-size: 1.45rem;
-            font-weight: 800;
-            color: var(--text-title, #f8fafc);
-            margin-bottom: 12px;
-        }
-
-        /* 시작 배경 박스 */
-        .why-start-box {
-            background: rgba(30, 41, 59, 0.5);
-            border-left: 4px solid var(--primary, #38bdf8);
-            border-radius: 8px;
-            padding: 18px 20px;
-            margin: 16px 0;
-        }
-
-        .why-start-box h5 {
-            font-size: 1rem;
-            font-weight: 800;
-            color: #f8fafc;
-            margin-bottom: 8px;
-        }
-
-        .why-start-box p {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            line-height: 1.65;
-            margin: 0;
-        }
-
-        /* 사용자 유형 태그 */
-        .user-type-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-top: 14px;
-        }
-
-        .user-type-card {
-            background: rgba(0, 0, 0, 0.25);
-            border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
-            border-radius: 8px;
-            padding: 14px;
-        }
-
-        .user-type-card h6 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--primary, #38bdf8);
-            margin-bottom: 4px;
-        }
-
-        .user-type-card p {
-            font-size: 0.8rem;
-            color: #94a3b8;
-            line-height: 1.4;
-            margin: 0;
-        }
-
-        /* AI 파이프라인 흐름 박스 */
-        .pipeline-box {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
-            border-radius: 10px;
-            padding: 18px;
-            margin: 16px 0;
-        }
-
-        .pipeline-flow {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
-        .pipeline-step {
-            background: var(--bg-sidebar, #111827);
-            border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
-            border-radius: 8px;
-            padding: 10px 14px;
-            text-align: center;
-            flex: 1;
-            min-width: 120px;
-        }
-
-        .pipeline-step .step-num { font-size: 0.72rem; color: var(--primary, #38bdf8); font-weight: 800; }
-        .pipeline-step .step-title { font-size: 0.85rem; color: #f8fafc; font-weight: 700; margin-top: 2px; }
-        .pipeline-step .step-sub { font-size: 0.75rem; color: #94a3b8; margin-top: 2px; }
-        .pipeline-arrow { color: var(--primary, #38bdf8); font-weight: 900; }
-
-        /* 서브 산출물 링크 리스트 (최소화된 서브 요소) */
-        .sub-docs-wrapper {
-            margin-top: 20px;
-            padding-top: 16px;
-            border-top: 1px dashed rgba(255, 255, 255, 0.15);
-        }
-
-        .sub-docs-title {
-            font-size: 0.92rem;
-            font-weight: 800;
-            color: #38bdf8;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
-        }
-
-        .sub-docs-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .sub-doc-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.78rem;
-            color: #94a3b8;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 5px 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .sub-doc-btn:hover {
-            background: rgba(56, 189, 248, 0.25);
-            color: #38bdf8;
-            border-color: #38bdf8;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
-        }
-
-        /* 트러블 슈팅 카드 */
-        .trouble-card {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
-            border-left: 4px solid var(--primary, #38bdf8);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 16px;
-        }
-
-        .trouble-card h5 {
-            color: var(--text-title, #f8fafc);
-            font-size: 1.05rem;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-
-        .trouble-card p {
-            font-size: 0.88rem;
-            color: #94a3b8;
-            line-height: 1.6;
-            margin-bottom: 6px;
-        }
-
-        .trouble-card p:last-child { margin-bottom: 0; }
-        .trouble-card strong { color: var(--primary, #38bdf8); }
-
-        /* 담당 역할 카드 그리드 */
-        .mypart-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin-top: 14px;
-        }
-
-        .mypart-card {
-            background: rgba(30, 41, 59, 0.4);
-            border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
-            border-top: 3px solid var(--primary, #38bdf8);
-            border-radius: 10px;
-            padding: 18px;
-        }
-
-        .mypart-title {
-            font-size: 0.98rem;
-            font-weight: 800;
-            color: #f8fafc;
-            margin-bottom: 8px;
-        }
-
-        .mypart-list {
-            font-size: 0.83rem;
-            color: #94a3b8;
-            padding-left: 16px;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 800px) {
-            .user-type-grid, .mypart-grid { grid-template-columns: 1fr; }
-            .pipeline-flow { flex-direction: column; }
-            .pipeline-arrow { transform: rotate(90deg); }
-        }
-
-        .pdf-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            z-index: 99999;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* 화면 96% x 94% 사용 (대형 화면) */
-        .pdf-modal-content {
-            position: relative;
-            width: 96vw;
-            height: 94vh;
-            background: #0f172a;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* 상단 헤더 바 (X 버튼 및 엑셀 다운로드 버튼 배치) */
-        .pdf-modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            background: #1e293b;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            height: 50px;
-            flex-shrink: 0;
-        }
-
-        .pdf-modal-title {
-            color: #f8fafc;
-            font-size: 0.95rem;
-            font-weight: 700;
-        }
-
-        /* 엑셀 다운로드 버튼 스타일 */
-        .excel-down-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: #10b981;
-            background: rgba(16, 185, 129, 0.12);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            padding: 5px 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .excel-down-btn:hover {
-            background: #10b981;
-            color: #ffffff;
-        }
-
-        /* 닫기 (X) 버튼 스타일 */
-        .pdf-close-btn {
-            font-size: 22px;
-            line-height: 1;
-            color: #94a3b8;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .pdf-close-btn:hover {
-            color: #ffffff;
-            background: #ef4444;
-            border-color: #ef4444;
-        }
-
-        /* PDF iframe 스타일 */
-        #pdfFrame {
-            width: 100%;
-            height: calc(100% - 50px);
-            border: none;
-            background: #ffffff;
-        }
-        .excel-down-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #10b981; /* 녹색 초록 색상 (엑셀 느낌) */
-            background: rgba(16, 185, 129, 0.12);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            padding: 6px 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .excel-down-btn:hover {
-            background: #10b981;
-            color: #ffffff;
-        }
-    </style>
+    <link rel="stylesheet" href="css/detail.css">
 </head>
 <body>
 
@@ -370,11 +35,18 @@
                 <span class="skill-chip">MariaDB</span>
                 <span class="skill-chip">AWS</span>
             </div>
+
+            <div class="project-links-group" style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="http://43.201.154.80:8081/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                    사이트 방문하기
+                </a>
+                <a href="https://github.com/seolgi100/trip-linker" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+                    GitHub 저장소
+                </a>
+            </div>
         </div>
 
-        <!-- ==========================================
-             01 · OVERVIEW (프로젝트 개요 & 기획 배경)
-        =========================================== -->
+        <!-- 1. 프로젝트 개요 -->
         <div class="project-block">
             <h3 class="section-title">1. 프로젝트 개요</h3>
 
@@ -388,7 +60,7 @@
                 </p>
             </div>
 
-            <!-- 사용자 유형 구분 -->
+
             <div class="details-title" style="margin-top: 18px;">사용자 권한별 구분</div>
             <div class="user-type-grid">
                 <div class="user-type-card">
@@ -408,9 +80,7 @@
             </div>
         </div>
 
-        <!-- ==========================================
-             02 · ANALYSIS (프로젝트 분석)
-        =========================================== -->
+        <!-- 2. 프로젝트 분석 및 기획 -->
         <div class="project-block">
             <h3 class="section-title">2. 프로젝트 분석 및 기획</h3>
             <p class="project-desc">
@@ -422,7 +92,7 @@
                 <li><strong>주요 기능 명세:</strong> AI 대화형 챗봇, Kakao Map 동선 시각화, 카카오톡 공유 및 지출 리포트</li>
             </ul>
 
-            <!-- 서브 산출물 링크 (PDF 연결 추천) -->
+            <!-- 서브 산출물 링크 -->
             <div class="sub-docs-wrapper">
                 <div class="sub-docs-title">분석 문서 산출물</div>
                 <div class="sub-docs-list">
@@ -433,9 +103,7 @@
             </div>
         </div>
 
-        <!-- ==========================================
-             03 · DESIGN (시스템 설계)
-        =========================================== -->
+        <!-- 3. 시스템 설계 -->
         <div class="project-block">
             <h3 class="section-title">3. 시스템 설계</h3>
             <p class="project-desc">
@@ -477,7 +145,8 @@
                 <li><strong>API 및 아키텍처 설계:</strong> 3계층 구조로 역할을 분리하고, 프론트엔드가 데이터를 일관되게 받을 수 있도록 공통 API 응답 규격 설계</li>
                 <li><strong>보안 및 권한 제어:</strong> JWT 토큰 기반 인증, 비밀번호 암호화 저장, URL 접근 권한 분기(일반 유저/관리자) 처리 구조 설계</li>
             </ul>
-            <!-- 서브 산출물 링크 (PDF 변환 링크 추천) -->
+
+            <!-- 서브 산출물 링크 -->
             <div class="sub-docs-wrapper">
                 <div class="sub-docs-title">설계 문서 산출물</div>
                 <div class="sub-docs-list">
@@ -489,9 +158,7 @@
             </div>
         </div>
 
-        <!-- ==========================================
-             04 · DEVELOPMENT (개발 — 문제 해결 과정)
-        =========================================== -->
+        <!-- 4. 개발 및 트러블슈팅 -->
         <div class="project-block">
             <h3 class="section-title">4. 개발 및 트러블슈팅</h3>
             <p class="project-desc">
@@ -520,9 +187,7 @@
             </div>
         </div>
 
-        <!-- ==========================================
-             05 · MY ROLE (담당 역할)
-        =========================================== -->
+        <!-- 5. 담당 역할 -->
         <div class="project-block">
             <h3 class="section-title">담당 역할</h3>
 
@@ -564,58 +229,10 @@
     </main>
 </div>
 
-<!-- 스크립트 연동 -->
-<script>
-    function openPdfModal(pdfUrl, title = '📄 문서 미리보기', excelUrl = null) {
-        const modal = document.getElementById('pdfModal');
-        const iframe = document.getElementById('pdfFrame');
-        const modalTitle = document.getElementById('pdfModalTitle');
-        const excelBtn = document.getElementById('excelDownloadBtn');
-
-        if (modalTitle) modalTitle.textContent = title;
-
-        // 미리보기 설정 (PDF면 브라우저 기본 툴바 제거)
-        if (pdfUrl.toLowerCase().endsWith('.pdf')) {
-            iframe.src = pdfUrl + '#toolbar=0';
-        } else {
-            iframe.src = pdfUrl;
-        }
-
-        // 다운로드 파일 지정 (엑셀 경로가 넘어온 경우 엑셀, 없으면 PDF/이미지 파일 다운로드)
-        const downloadTarget = excelUrl ? excelUrl : pdfUrl;
-        if (excelBtn) {
-            excelBtn.href = downloadTarget;
-            const fileName = downloadTarget.substring(downloadTarget.lastIndexOf('/') + 1);
-            excelBtn.setAttribute('download', fileName);
-            excelBtn.style.display = 'inline-flex';
-        }
-
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-
-    // 모달 닫기 함수
-    function closePdfModal(event) {
-        if (!event || event.target.id === 'pdfModal' || event.target.classList.contains('pdf-close-btn') || event.target.closest('.pdf-close-btn')) {
-            const modal = document.getElementById('pdfModal');
-            const iframe = document.getElementById('pdfFrame');
-            if (modal) modal.style.display = 'none';
-            if (iframe) iframe.src = '';
-            document.body.style.overflow = 'auto';
-        }
-    }
-
-    // ESC 키 입력 시 닫기
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closePdfModal();
-        }
-    });
-</script>
-
+<!-- 문서/이미지 모달 영역 -->
 <div id="pdfModal" class="pdf-modal" onclick="closePdfModal(event)">
     <div class="pdf-modal-content" onclick="event.stopPropagation()">
-        <!-- 상단 헤더 (제목 + 엑셀/파일 다운로드 버튼 + X 닫기 버튼) -->
+        <!-- 상단 헤더 -->
         <div class="pdf-modal-header">
             <span id="pdfModalTitle" class="pdf-modal-title">📄 문서 미리보기</span>
             <div style="display: flex; align-items: center; gap: 10px;">
@@ -625,9 +242,12 @@
                 <button class="pdf-close-btn" onclick="closePdfModal()">&times;</button>
             </div>
         </div>
-        <!-- PDF/이미지 미리보기 뷰어 -->
+        <!-- 뷰어 -->
         <iframe id="pdfFrame" src="" frameborder="0"></iframe>
     </div>
 </div>
+
+<!-- 외부 JS 파일 연결 -->
+<script src="js/detail.js"></script>
 </body>
 </html>
