@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TripLinker 상세 설명 | 김재민</title>
+    <title>Jangbogo 상세 개발 설명</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/detail.css">
 </head>
 <body>
 
 <div class="wrapper">
-    <main style="max-width: 1000px; margin: 0 auto; padding: 60px 20px;">
+    <main style="max-width: 1050px; margin: 0 auto; padding: 50px 24px;">
 
         <!-- 돌아가기 버튼 -->
         <div style="margin-bottom: 30px;">
@@ -18,41 +19,255 @@
             </a>
         </div>
 
+        <!-- 헤더 섹션 -->
         <div class="content-header">
-            <h2>TripLinker 상세 설명</h2>
-            <p class="section-desc">사용자 취향 기반 여행 경로 추천 및 실시간 동행 정산 웹 플랫폼</p>
+            <h2>Jangbogo</h2>
+            <p class="section-desc">Google Vision OCR & Spring AI 기반 영수증 자동 인식 스마트 냉장고 재고 관리 및 레시피 추천 플랫폼</p>
+
+            <div class="tech-stack-group" style="margin-top: 14px;">
+                <span class="project-period">4인 팀 | 2개월</span>
+                <span class="skill-chip">Backend Core</span>
+                <span class="skill-chip">Java</span>
+                <span class="skill-chip">Spring Boot</span>
+                <span class="skill-chip">Spring AI</span>
+                <span class="skill-chip">Google Vision OCR</span>
+                <span class="skill-chip">Spring Security</span>
+                <span class="skill-chip">MariaDB</span>
+                <span class="skill-chip">AWS</span>
+            </div>
+
+            <div class="project-links-group" style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="http://3.34.181.28:9090/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                    사이트 방문하기
+                </a>
+                <a href="https://github.com/eokeon/Jangbogo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+                    GitHub 저장소
+                </a>
+            </div>
         </div>
 
-        <!-- 프로젝트 개요 -->
+        <div class="media-frame single-media">
+            <img src="file/img/Jangbogo-main.png" alt="Jangbogo 메인 화면">
+        </div>
+
+        <!-- 1. 프로젝트 개요 -->
         <div class="project-block">
-            <h3>1. 시스템 아키텍처 & 개발 배경</h3>
-            <p class="project-desc" style="margin-top: 12px;">
-                여기에 시스템 구조도, 아키텍처 설명 및 개발 목적을 상세히 작성할 수 있습니다.
+            <h3 class="section-title">1. 프로젝트 개요</h3>
+
+            <!-- 프로젝트 시작 배경 -->
+            <div class="why-start-box">
+                <h5>개요</h5>
+                <p>
+                    기존 식재료 관리 서비스는 수많은 품목과 유통기한을 일일이 수동으로 입력해야 하는 번거로움과, 보유 재료 기반 레시피 추천 및 지출 리포트와의 수월한 연동 부족이라는 한계가 있었습니다.<br>
+                    이를 해결하고자 <strong>Google Cloud Vision OCR 텍스트 추출, Spring AI 영수증 자동 정제, 냉장고 재고 자동 적재, 알레르기 및 보유 재료 기반 투트랙 레시피 매칭 엔진, 스마트 가계부 및 요리 시 식재료 자동 차감</strong>을 결합한 <strong>Jangbogo</strong> 플랫폼을 기획하고 개발했습니다.
+                </p>
+            </div>
+
+            <div class="details-title" style="margin-top: 18px;">사용자 권한별 구분</div>
+            <div class="user-type-grid">
+                <div class="user-type-card">
+                    <h6>비회원 (Guest)</h6>
+                    <p>서비스 진입 시 로그인 화면으로 리다이렉트<br>
+                        (회원가입, 계정 찾기 접근 허용 / 모든 주요 서비스는 로그인 필수)</p>
+                </div>
+                <div class="user-type-card">
+                    <h6>일반 회원 (Member)</h6>
+                    <p>영수증 OCR 스캔 및 AI 자동 적재, 냉장고 재고/유통기한 관리,<br>
+                        맞춤형 레시피 매칭, 스마트 가계부 및 요리 시 식재료 자동 차감 이용</p>
+                </div>
+                <div class="user-type-card">
+                    <h6>관리자 (Admin)</h6>
+                    <p>커뮤니티 신고 내역 심사 및 게시글 강제 삭제, 악성 유저 제재/사면,<br>
+                        공지사항 등록, OCR 성공률 및 API 시스템 통계 관리 권한 보유</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. 프로젝트 분석 및 기획 -->
+        <div class="project-block">
+            <h3 class="section-title">2. 프로젝트 분석 및 기획</h3>
+            <p class="project-desc">
+                Jangbogo 서비스의 요구사항 및 기능 명세서를 분석하고, 일정(WBS)과 역할 분담을 체계적으로 수립했습니다.
             </p>
-        </div>
 
-        <!-- 상세 기능 설명 -->
-        <div class="project-block">
-            <h3>2. 핵심 기능 상세</h3>
-            <ul class="details-list" style="margin-top: 16px;">
-                <li><strong>AI 멀티 엔진 호출 구조:</strong> Claude -> Groq -> Gemini 순서의 장애 대응(Fallback) 구조 설명</li>
-                <li><strong>Kakao Map & 기상청 API:</strong> 실시간 날씨 데이터 반영 동선 시각화 로직</li>
-                <li><strong>JWT & OAuth2 인증:</strong> Kakao/Google 소셜 로그인 및 토큰 재발급 세부 설계</li>
+            <ul class="details-list" style="margin-top: 10px;">
+                <li><strong>요구사항 수립:</strong> OCR 영수증 추출 정확도 보정, Spring AI 기반 품목명/단가/유통기한 파싱 규칙, 레시피 매칭 알고리즘 및 식재료 차감 연동 정의</li>
+                <li><strong>주요 기능 명세:</strong> Vision OCR & AI 영수증 정제, 냉장고 재고 D-Day 관리, 알레르기 차단 레시피 추천, 스마트 소비 가계부 및 요리 시 식재료 자동 차감</li>
             </ul>
+
+            <!-- 서브 산출물 링크 -->
+            <div class="sub-docs-wrapper">
+                <div class="sub-docs-title">분석 문서 산출물</div>
+                <div class="sub-docs-list">
+                    <a href="javascript:void(0);" onclick="openPdfModal('file/pdf/Jangbogo_요구사항_정의서.pdf', '📄 요구사항 정의서', 'file/excel/Jangbogo_요구사항_정의서.xlsx')" class="sub-doc-btn">📄 요구사항 정의서</a>
+                    <a href="javascript:void(0);" onclick="openPdfModal('file/pdf/Jangbogo_기능_정의서.pdf', '📄 기능 정의서', 'file/excel/Jangbogo_기능_정의서.xlsx')" class="sub-doc-btn">📄 기능 정의서</a>
+                    <a href="javascript:void(0);" onclick="openPdfModal('file/pdf/Jangbogo_WBS.pdf', '📄 WBS 일정표', 'file/excel/Jangbogo_WBS.xlsx')" class="sub-doc-btn">📄 WBS 일정표</a>
+                    <a href="javascript:void(0);" onclick="openPdfModal('file/pdf/Jangbogo_WBS.pdf', '📄 WBS 일정표', 'file/excel/Jangbogo_WBS.xlsx')" class="sub-doc-btn">📄 WBS 일정표</a>
+
+                </div>
+            </div>
         </div>
 
-        <!-- 트러블슈팅 -->
+        <!-- 3. 시스템 설계 -->
         <div class="project-block">
-            <h3>3. 트러블 슈팅 & 성능 개선</h3>
-            <div class="trouble-card" style="margin-top: 16px;">
-                <h5>Technical Issue & Resolution</h5>
-                <p><strong>• 문제 상황:</strong> 대용량 장소 데이터 조회 시 응답 지연 발생</p>
-                <p><strong>• 해결 방법:</strong> DB 인덱싱 최적화 및 캐싱 전략 적용으로 응답 속도 개선</p>
+            <h3 class="section-title">3. 시스템 설계</h3>
+            <p class="project-desc">
+                Vision OCR과 Spring AI(Claude/Gemini/Grok) 연동 파이프라인 및 계층형 백엔드 아키텍처를 설계했습니다.
+            </p>
+
+            <!-- AI & Data 파이프라인 흐름 박스 -->
+            <div class="pipeline-box">
+                <div class="details-title" style="margin-bottom: 4px;">Vision OCR & Spring AI 영수증 정제 및 재고 적재 파이프라인</div>
+                <div class="pipeline-flow">
+                    <div class="pipeline-step">
+                        <div class="step-num">Step 1</div>
+                        <div class="step-title">영수증 이미지 스캔</div>
+                        <div class="step-sub">업로드 & 이미지 저장</div>
+                    </div>
+                    <div class="pipeline-arrow">→</div>
+                    <div class="pipeline-step">
+                        <div class="step-num">Step 2</div>
+                        <div class="step-title">Google Vision OCR</div>
+                        <div class="step-sub">원시 텍스트 1차 추출</div>
+                    </div>
+                    <div class="pipeline-arrow">→</div>
+                    <div class="pipeline-step">
+                        <div class="step-num">Step 3</div>
+                        <div class="step-title">Spring AI 정제</div>
+                        <div class="step-sub">품목/단가/유통기한 추론</div>
+                    </div>
+                    <div class="pipeline-arrow">→</div>
+                    <div class="pipeline-step">
+                        <div class="step-num">Step 4</div>
+                        <div class="step-title">가계부 & 냉장고 적재</div>
+                        <div class="step-sub">메타 매칭 & 자동 적재</div>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="details-list" style="margin-top: 12px;">
+                <li><strong>데이터베이스 설계:</strong> 회원, 냉장고, 재고품목, 식재료 메타, 가계부 영수증, 공공/유저 레시피, 커뮤니티, 신고, 알림 등 도메인 데이터 구조 설계</li>
+                <li><strong>API 및 아키텍처 설계:</strong> 3계층 구조로 역할을 분리하고 일관된 통신을 위한 공통 Success/Error DTO 규격 정의</li>
+                <li><strong>영수증 및 수량 차감 연동:</strong> Vision OCR + Spring AI 데이터 정제, 가계부-냉장고 일괄 적재, 요리 시 식재료 자동 차감 모듈 설계</li>
+            </ul>
+
+            <!-- 서브 산출물 링크 -->
+            <div class="sub-docs-wrapper">
+                <div class="sub-docs-title">설계 문서 산출물</div>
+                <div class="sub-docs-list">
+                    <a href="javascript:void(0);" onclick="openPdfModal('file/pdf/Jangbogo_DB_설계서.pdf', '📄 DB 설계서', 'file/excel/Jangbogo_DB_설계서.xlsx')" class="sub-doc-btn">📄 DB 설계서</a>
+                    <a href="javascript:void(0);" onclick="openPdfModal('file/pdf/Jangbogo_ERD.pdf', '📄 ERD', 'file/img/Jangbogo_ERD.png')" class="sub-doc-btn">📄 ERD</a>
+                    <a href="javascript:void(0);" onclick="openPdfModal('file/pdf/Jangbogo_API_명세서.pdf', '📄 API 명세서', 'file/excel/Jangbogo_API_명세서.xlsx')" class="sub-doc-btn">📄 API 명세서</a>
+                    <a href="javascript:void(0);" onclick="openPdfModal('file/pdf/Jangbogo_클래스_다이어그램.pdf', '📄 클래스 다이어그램', 'file/excel/Jangbogo_클래스_다이어그램.xlsx')" class="sub-doc-btn">📄 클래스 다이어그램</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. 개발 및 트러블슈팅 -->
+        <div class="project-block">
+            <h3 class="section-title">4. 개발 및 트러블슈팅</h3>
+            <p class="project-desc">
+                개발 진행 과정에서 직면한 주요 기술적 이슈와 해결 과정입니다.
+            </p>
+
+            <div class="trouble-card">
+                <h5>1. 영수증 OCR 비정형 텍스트 및 품목명·할인 단가 인식 오차</h5>
+                <p><strong>• 문제 상황:</strong> 영수증 스캔 시 제조사 수식어, 용량 문구, 행사 할인 항목이 섞여 정확한 식재료명과 개당 단가를 파싱하지 못하는 현상 발생.</p>
+                <p><strong>• 원인 분석:</strong> 영수증 프린터의 마트별 라인 포맷 다양성 및 행사 할인이 품목 전체 수량 라인에 한꺼번에 적용되는 구조적 문제.</p>
+                <p><strong>• 해결 방법:</strong> Spring AI System Prompt에 <code>개당 단가 = 원단가 - (할인총액÷수량)</code> 분할 계산 규칙 및 무관한 수식어 제거 가이드를 부여하고, 사전 동의어/별칭 매칭 점수 알고리즘을 도입해 정제 정밀도를 대폭 향상.</p>
+            </div>
+
+            <div class="trouble-card">
+                <h5>2. LLM 모델 변경(Gemini → Claude)에 따른 프롬프트 재설계</h5>
+                <p><strong>• 문제 상황:</strong> 초기 Gemini 모델로 영수증 파싱을 개발 및 테스트하다가 Claude(Sonnet) 모델로 변경 후 파싱 예외 발생.</p>
+                <p><strong>• 원인 분석:</strong> LLM 모델마다 프롬프트 해석 방식과 출력 형식 규칙이 달라 파싱 방식으로는 모델 교체 시 응답 구조가 일관되지 않는 문제 발생.</p>
+                <p><strong>• 해결 방법:</strong> AI 응답 텍스트 스트림 통합 및 마크다운 블록 제거 전처리 로직을 적용하고, System Prompt 상에 엄격한 JSON 응답 구조 규격 및 예시를 전면 재설계하여 모델 변경 시에도 안정적인 JSON DTO 파싱 정밀도 확보.</p>
+            </div>
+
+            <div class="trouble-card">
+                <h5>3. 요리 진행 시 식재료 단위 불일치 및 차감 수량 연산 오류</h5>
+                <p><strong>• 문제 상황:</strong> 레시피 화면에서 요리 완료 후 식재료를 차감할 때, 레시피 단위와 냉장고 등록 단위가 다르거나 인분 수에 따른 소요량이 반영되지 않아 차감 연산이 오작동하는 현상 발생.</p>
+                <p><strong>• 원인 분석:</strong> 레시피 소요량 단위와 냉장고 재고 단위가 불일치하고, 인분 수 조절에 따른 재료 수량 자동 계산 연산 미적용.</p>
+                <p><strong>• 해결 방법:</strong> 요리 진행 시 사용자로부터 조리할 인분 수와 수량을 직접 선택/입력받아 단위 환산을 거쳐 필요한 식재료 양을 정확히 계산한 뒤 냉장고 재고에서 차감하고, 수량이 0이 된 항목은 소진 상태로 자동 변경 처리.</p>
+            </div>
+
+            <!-- 서브 산출물 링크 -->
+            <div class="sub-docs-wrapper">
+                <div class="sub-docs-title">문서 산출물</div>
+                <div class="sub-docs-list">
+                    <a href="javascript:void(0);" onclick="openPdfModal('file/pdf/Jangbogo_클래스_다이어그램.pdf', '📄 클래스 다이어그램', 'file/excel/Jangbogo_클래스_다이어그램.xlsx')" class="sub-doc-btn">📄 클래스 다이어그램</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. 담당 역할 -->
+        <div class="project-block">
+            <h3 class="section-title">담당 역할</h3>
+
+            <div class="mypart-grid">
+                <div class="mypart-card">
+                    <div class="mypart-title">1. Vision OCR & Spring AI 정제 파이프라인</div>
+                    <ul class="mypart-list">
+                        <li>Google Cloud Vision API 텍스트 추출 및 Spring AI Multi-LLM (Claude, Gemini, Grok) 정제 연동</li>
+                        <li>식재료 메타데이터 동의어/별칭 매칭 점수 알고리즘 구축</li>
+                    </ul>
+                </div>
+
+                <div class="mypart-card">
+                    <div class="mypart-title">2. 영수증 기반 냉장고 자동 적재</div>
+                    <ul class="mypart-list">
+                        <li>OCR 정제 데이터 중 식품 자동 판별 및 유통기한/보관타입 수집</li>
+                        <li>@Transactional 적용으로 가계부와 냉장고 동시 적재 데이터 원자성 보장</li>
+                    </ul>
+                </div>
+
+                <div class="mypart-card">
+                    <div class="mypart-title">3. 스마트 가계부</div>
+                    <ul class="mypart-list">
+                        <li>영수증 스캔 데이터 기반 주간/월별 식비 지출 통계 집계 API 구현</li>
+                        <li>구매 이력 기반 식재료 소비 주기 연산 및 D-Day 재구매 추천 개발</li>
+                    </ul>
+                </div>
+
+                <div class="mypart-card">
+                    <div class="mypart-title">4. 요리 진행</div>
+                    <ul class="mypart-list">
+                        <li>요리 시 필요한 식재료 소요량 계산 및 재고 체크</li>
+                        <li>인분 수 기준 재료 수량 가감 연산</li>
+                        <li>요리 완료 시 냉장고 재고 수량 자동 차감 및 소진 상태 전환</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
     </main>
 </div>
 
+<!-- 문서/이미지 모달 영역 -->
+<div id="pdfModal" class="pdf-modal" onclick="closePdfModal(event)">
+    <div class="pdf-modal-content" onclick="event.stopPropagation()">
+        <!-- 상단 헤더 -->
+        <div class="pdf-modal-header">
+            <span id="pdfModalTitle" class="pdf-modal-title">📄 문서 미리보기</span>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <a id="excelDownloadBtn" href="#" download class="excel-down-btn" style="display: none;">
+                    다운로드
+                </a>
+                <button class="pdf-close-btn" onclick="closePdfModal()">&times;</button>
+            </div>
+        </div>
+        <!-- 뷰어 -->
+        <iframe id="pdfFrame" src="" frameborder="0"></iframe>
+    </div>
+</div>
+
+<!-- 외부 JS 파일 연결 -->
+<script src="js/detail.js"></script>
+<script src="js/script.js"></script>
+
+<div id="imageModal" class="image-modal" onclick="closeModal()">
+    <span class="close-btn">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
 </body>
 </html>
